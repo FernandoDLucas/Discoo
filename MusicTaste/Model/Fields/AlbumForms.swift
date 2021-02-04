@@ -5,4 +5,8 @@
 //  Created by Fernando de Lucas da Silva Gomes on 03/02/21.
 //
 
-import Foundation
+enum AlbumForm{
+    var fields : [String] {
+        return ["Título", "Artista", "Ano"]
+    }
+}

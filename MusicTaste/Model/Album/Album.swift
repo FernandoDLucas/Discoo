@@ -50,3 +50,10 @@ extension Album {
 extension Album : Identifiable {
 
 }
+
+
+struct Schema {
+    enum Field: String {
+            case name
+        }
+    }
