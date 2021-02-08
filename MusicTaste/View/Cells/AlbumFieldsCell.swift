@@ -7,10 +7,16 @@
 
 import UIKit
 
-class AlbumFieldsCell : UITableViewCell {
+protocol AlbumFieldsDelegate: class {
+    func didUpdateTextField(text: String, field: AlbumFields)
+}
+
+class AlbumFieldsCell : UITableViewCell, UITextFieldDelegate {
     
+    weak var delegate: AlbumFieldsDelegate?
     static let reuseIdentifier = "AlbumFieldCell"
-    
+    var identifier: AlbumFields?
+
     let textField: UITextField = {
         let textField = UITextField()
         textField.backgroundColor = .systemBackground
@@ -32,6 +38,7 @@ class AlbumFieldsCell : UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.backgroundColor = .systemBackground
+        self.textField.addTarget(self, action: #selector(didChanged), for: .editingChanged)
         setup()
         configureLayout()
     }
@@ -46,6 +53,12 @@ class AlbumFieldsCell : UITableViewCell {
         self.addSubview(textField)
     }
     
+    public func configure(fieldName : String) {
+        self.textField.delegate = self
+        self.label.text = fieldName
+        self.identifier = AlbumFields(rawValue: fieldName)
+    }
+    
     private func configureLayout() {
         self.textField.clearButtonMode = .always
         NSLayoutConstraint.activate([
@@ -58,5 +71,14 @@ class AlbumFieldsCell : UITableViewCell {
               textField.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -16),
               textField.heightAnchor.constraint(equalToConstant: 44)
           ])
+    }
+}
+
+extension AlbumFieldsCell {
+    
+    @objc func didChanged(textField: UITextField) {
+        if let text = textField.text, let identifier = self.identifier {
+            self.delegate?.didUpdateTextField(text: text, field: identifier)
+        }
     }
 }

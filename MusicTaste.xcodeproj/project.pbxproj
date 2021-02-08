@@ -16,6 +16,24 @@
 		EC57921C25CAC97C00A5440F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC57921A25CAC97C00A5440F /* LaunchScreen.storyboard */; };
 		EC57922725CAC97C00A5440F /* MusicTasteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC57922625CAC97C00A5440F /* MusicTasteTests.swift */; };
 		EC57923225CAC97C00A5440F /* MusicTasteUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC57923125CAC97C00A5440F /* MusicTasteUITests.swift */; };
+		EC57924625CACDDD00A5440F /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC57924225CACDDD00A5440F /* Album.swift */; };
+		EC57924825CACDDD00A5440F /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC57924425CACDDD00A5440F /* Song.swift */; };
+		EC57925F25CAD5FE00A5440F /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC57925E25CAD5FE00A5440F /* CoreDataService.swift */; };
+		EC57926725CAD69900A5440F /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC57926625CAD69900A5440F /* Repository.swift */; };
+		EC57926C25CAD6AA00A5440F /* AlbumRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC57926B25CAD6AA00A5440F /* AlbumRepository.swift */; };
+		EC57927125CAD73E00A5440F /* AlbumViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC57927025CAD73E00A5440F /* AlbumViewModel.swift */; };
+		EC57927625CAD74F00A5440F /* AlbumListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC57927525CAD74F00A5440F /* AlbumListViewModel.swift */; };
+		EC57927B25CAD77300A5440F /* CreateAlbumViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC57927A25CAD77300A5440F /* CreateAlbumViewModel.swift */; };
+		EC57928025CAD79000A5440F /* SongViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC57927F25CAD79000A5440F /* SongViewModel.swift */; };
+		EC57928625CADABF00A5440F /* AlbumDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC57928525CADABF00A5440F /* AlbumDetailsViewController.swift */; };
+		EC57928E25CADACD00A5440F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC57928D25CADACD00A5440F /* HomeViewController.swift */; };
+		EC57929325CADAE000A5440F /* CreateAlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC57929225CADAE000A5440F /* CreateAlbumViewController.swift */; };
+		EC57929A25CADB0500A5440F /* SongReviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC57929925CADB0500A5440F /* SongReviewController.swift */; };
+		EC5792AB25CADEF900A5440F /* AlbumCards.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5792AA25CADEF900A5440F /* AlbumCards.swift */; };
+		EC5792B325CB204000A5440F /* AlbumFieldsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5792B225CB204000A5440F /* AlbumFieldsCell.swift */; };
+		EC5792B925CB259600A5440F /* AlbumForms.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5792B825CB259600A5440F /* AlbumForms.swift */; };
+		EC79147B25CD7E8300BC3429 /* SongRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC79147A25CD7E8300BC3429 /* SongRepository.swift */; };
+		EC9291AC25CC0E1100BDCBE6 /* AlbumDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9291AB25CC0E1100BDCBE6 /* AlbumDTO.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +69,24 @@
 		EC57922D25CAC97C00A5440F /* MusicTasteUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MusicTasteUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC57923125CAC97C00A5440F /* MusicTasteUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicTasteUITests.swift; sourceTree = "<group>"; };
 		EC57923325CAC97D00A5440F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EC57924225CACDDD00A5440F /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
+		EC57924425CACDDD00A5440F /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
+		EC57925E25CAD5FE00A5440F /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
+		EC57926625CAD69900A5440F /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		EC57926B25CAD6AA00A5440F /* AlbumRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumRepository.swift; sourceTree = "<group>"; };
+		EC57927025CAD73E00A5440F /* AlbumViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumViewModel.swift; sourceTree = "<group>"; };
+		EC57927525CAD74F00A5440F /* AlbumListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumListViewModel.swift; sourceTree = "<group>"; };
+		EC57927A25CAD77300A5440F /* CreateAlbumViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAlbumViewModel.swift; sourceTree = "<group>"; };
+		EC57927F25CAD79000A5440F /* SongViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongViewModel.swift; sourceTree = "<group>"; };
+		EC57928525CADABF00A5440F /* AlbumDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDetailsViewController.swift; sourceTree = "<group>"; };
+		EC57928D25CADACD00A5440F /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		EC57929225CADAE000A5440F /* CreateAlbumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAlbumViewController.swift; sourceTree = "<group>"; };
+		EC57929925CADB0500A5440F /* SongReviewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongReviewController.swift; sourceTree = "<group>"; };
+		EC5792AA25CADEF900A5440F /* AlbumCards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumCards.swift; sourceTree = "<group>"; };
+		EC5792B225CB204000A5440F /* AlbumFieldsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumFieldsCell.swift; sourceTree = "<group>"; };
+		EC5792B825CB259600A5440F /* AlbumForms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumForms.swift; sourceTree = "<group>"; };
+		EC79147A25CD7E8300BC3429 /* SongRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongRepository.swift; sourceTree = "<group>"; };
+		EC9291AB25CC0E1100BDCBE6 /* AlbumDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDTO.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +137,11 @@
 		EC57920B25CAC97A00A5440F /* MusicTaste */ = {
 			isa = PBXGroup;
 			children = (
+				EC57925D25CAD43D00A5440F /* Repository */,
+				EC57925C25CAD43000A5440F /* Service */,
+				EC57925B25CAD42900A5440F /* ViewModel */,
+				EC57925A25CAD42000A5440F /* View */,
+				EC57924D25CACDF100A5440F /* Model */,
 				EC57920C25CAC97A00A5440F /* AppDelegate.swift */,
 				EC57920E25CAC97A00A5440F /* SceneDelegate.swift */,
 				EC57921025CAC97A00A5440F /* ViewController.swift */,
@@ -129,6 +170,99 @@
 				EC57923325CAC97D00A5440F /* Info.plist */,
 			);
 			path = MusicTasteUITests;
+			sourceTree = "<group>";
+		};
+		EC57924D25CACDF100A5440F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EC9291AA25CC0DFE00BDCBE6 /* Song */,
+				EC9291A925CC0DEB00BDCBE6 /* Album */,
+				EC5792B725CB258A00A5440F /* Fields */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		EC57925A25CAD42000A5440F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EC5792A925CADEED00A5440F /* Cells */,
+				EC57928425CADA9700A5440F /* Controllers */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		EC57925B25CAD42900A5440F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				EC57927025CAD73E00A5440F /* AlbumViewModel.swift */,
+				EC57927525CAD74F00A5440F /* AlbumListViewModel.swift */,
+				EC57927A25CAD77300A5440F /* CreateAlbumViewModel.swift */,
+				EC57927F25CAD79000A5440F /* SongViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		EC57925C25CAD43000A5440F /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				EC57925E25CAD5FE00A5440F /* CoreDataService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		EC57925D25CAD43D00A5440F /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				EC57926625CAD69900A5440F /* Repository.swift */,
+				EC57926B25CAD6AA00A5440F /* AlbumRepository.swift */,
+				EC79147A25CD7E8300BC3429 /* SongRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		EC57928425CADA9700A5440F /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				EC57928525CADABF00A5440F /* AlbumDetailsViewController.swift */,
+				EC57928D25CADACD00A5440F /* HomeViewController.swift */,
+				EC57929225CADAE000A5440F /* CreateAlbumViewController.swift */,
+				EC57929925CADB0500A5440F /* SongReviewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		EC5792A925CADEED00A5440F /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				EC5792AA25CADEF900A5440F /* AlbumCards.swift */,
+				EC5792B225CB204000A5440F /* AlbumFieldsCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		EC5792B725CB258A00A5440F /* Fields */ = {
+			isa = PBXGroup;
+			children = (
+				EC5792B825CB259600A5440F /* AlbumForms.swift */,
+			);
+			path = Fields;
+			sourceTree = "<group>";
+		};
+		EC9291A925CC0DEB00BDCBE6 /* Album */ = {
+			isa = PBXGroup;
+			children = (
+				EC57924225CACDDD00A5440F /* Album.swift */,
+				EC9291AB25CC0E1100BDCBE6 /* AlbumDTO.swift */,
+			);
+			path = Album;
+			sourceTree = "<group>";
+		};
+		EC9291AA25CC0DFE00BDCBE6 /* Song */ = {
+			isa = PBXGroup;
+			children = (
+				EC57924425CACDDD00A5440F /* Song.swift */,
+			);
+			path = Song;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,9 +395,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC57925F25CAD5FE00A5440F /* CoreDataService.swift in Sources */,
+				EC57927625CAD74F00A5440F /* AlbumListViewModel.swift in Sources */,
+				EC9291AC25CC0E1100BDCBE6 /* AlbumDTO.swift in Sources */,
+				EC57924825CACDDD00A5440F /* Song.swift in Sources */,
 				EC57921125CAC97A00A5440F /* ViewController.swift in Sources */,
+				EC57926C25CAD6AA00A5440F /* AlbumRepository.swift in Sources */,
+				EC57928E25CADACD00A5440F /* HomeViewController.swift in Sources */,
+				EC57926725CAD69900A5440F /* Repository.swift in Sources */,
+				EC5792AB25CADEF900A5440F /* AlbumCards.swift in Sources */,
+				EC57928625CADABF00A5440F /* AlbumDetailsViewController.swift in Sources */,
 				EC57921725CAC97A00A5440F /* MusicTaste.xcdatamodeld in Sources */,
 				EC57920D25CAC97A00A5440F /* AppDelegate.swift in Sources */,
+				EC79147B25CD7E8300BC3429 /* SongRepository.swift in Sources */,
+				EC57929A25CADB0500A5440F /* SongReviewController.swift in Sources */,
+				EC57924625CACDDD00A5440F /* Album.swift in Sources */,
+				EC57927125CAD73E00A5440F /* AlbumViewModel.swift in Sources */,
+				EC57928025CAD79000A5440F /* SongViewModel.swift in Sources */,
+				EC57927B25CAD77300A5440F /* CreateAlbumViewModel.swift in Sources */,
+				EC5792B925CB259600A5440F /* AlbumForms.swift in Sources */,
+				EC5792B325CB204000A5440F /* AlbumFieldsCell.swift in Sources */,
+				EC57929325CADAE000A5440F /* CreateAlbumViewController.swift in Sources */,
 				EC57920F25CAC97A00A5440F /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
