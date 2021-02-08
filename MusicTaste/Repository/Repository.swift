@@ -13,5 +13,5 @@ protocol Repository {
     
     func add(object: ObjectDTO) -> Object?
     
-    func addSong(title: String) -> Object?
+    func addSong(title: String, album: Album) -> Object?
 }

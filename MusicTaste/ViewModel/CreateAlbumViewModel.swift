@@ -27,7 +27,7 @@ extension CreateAlbumViewModel{
     }
     
     func addAlbum(){
-        repository.add(object: albumDTO)
+        _ = repository.add(object: albumDTO)
         handleDismiss?()
     }
     
@@ -35,8 +35,12 @@ extension CreateAlbumViewModel{
         self.albumDTO.artwork = data
     }
     
-    @objc func saveButton(){
-        repository.add(object: albumDTO)
+    @objc func saveButton() {
+        guard albumDTO.artwork != nil else {
+            handleDismiss?()
+            return
+        }
+        _ = repository.add(object: albumDTO)
         handleDismiss?()
     }
     
@@ -54,7 +58,7 @@ extension CreateAlbumViewModel: AlbumFieldsDelegate{
         case .artist:
             self.albumDTO.artist = text
         case .year:
-            self.albumDTO.year = Int32(text) ?? 0
+            self.albumDTO.year = Int32(text) ?? 2020
         }
     }
 }

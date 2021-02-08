@@ -36,7 +36,7 @@ class HomeViewController : UIViewController{
         super.viewWillAppear(animated)
         viewModel.getAll()
     }
-    
+
     private func configureNavigation() {
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.title = "Music Taste"

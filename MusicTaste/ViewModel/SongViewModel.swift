@@ -28,9 +28,3 @@ extension SongViewModel {
         saveSong()
     }
 }
-//extension SongViewModel : SongReviewDelegate {
-//    func didUpdateTextField(txt: String) {
-//        self.song.review = txt
-//        saveSong()
-//    }
-//}

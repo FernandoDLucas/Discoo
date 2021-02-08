@@ -25,9 +25,10 @@ class SongRepository: Repository {
         return nil
     }
     
-    func addSong(title: String) -> Song? {
+    func addSong(title: String, album: Album) -> Song? {
         let song = service.new()
         song?.name = title
+        album.addToSongs(song!)
         if service.save() {return song}
         return nil
     }

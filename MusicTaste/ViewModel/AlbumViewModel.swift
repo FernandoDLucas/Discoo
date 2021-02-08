@@ -11,7 +11,9 @@ class AlbumViewModel {
     
     let album : Album
     
-    let repository = SongRepository()
+    let repository = AlbumRepository()
+    
+    let songRepository = SongRepository()
     
     var songs = [SongViewModel]()
     
@@ -43,9 +45,10 @@ extension AlbumViewModel{
 extension  AlbumViewModel{
     
     public func getAll() {
-        let array = repository.getAll()
-        let arrayList = array.compactMap(SongViewModel.init)
-        self.songs = arrayList
+        let array = album.getSongs()
+        self.songs = array.map {
+            SongViewModel.init($0)
+        }
         self.handleUpdate?()
     }
     
@@ -53,7 +56,7 @@ extension  AlbumViewModel{
         return songs.count
     }
     public func addSong(title: String) {
-       _ = repository.addSong(title: title)
+        _ = songRepository.addSong(title: title, album: self.album)
         self.handleUpdate?()
     }
     

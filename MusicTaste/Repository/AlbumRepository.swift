@@ -27,11 +27,11 @@ class AlbumRepository: Repository {
         album?.artist = object.artist
         album?.artwork = object.artwork
         album?.year = object.year
-        if service.save() {print(album); return album}
+        if service.save() {return album}
         return nil
     }
     
-    func addSong(title: String) -> Album? {
+    func addSong(title: String, album: Album) -> Album? {
         return nil
     }
 }

@@ -44,6 +44,7 @@ class AlbumDetailsViewController : UIViewController{
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         viewModel.getAll()
+        print(viewModel.album)
     }
     
     private func configureNavigation() {

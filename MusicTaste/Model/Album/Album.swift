@@ -57,3 +57,13 @@ struct Schema {
             case name
         }
     }
+
+extension Album {
+    func getSongs() -> [Song] {
+        let songSet = self.songs as! Set<Song>
+        let songArray = songSet.map { Song in
+            return Song
+        }
+        return songArray
+    }
+}
