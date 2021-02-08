@@ -12,6 +12,4 @@ protocol Repository {
     func getAll() -> [Object]
     
     func add(object: ObjectDTO) -> Object?
-    
-    func addSong(title: String, album: Album) -> Object?
 }

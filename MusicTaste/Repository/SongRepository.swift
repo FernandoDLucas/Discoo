@@ -7,13 +7,25 @@
 
 import Foundation
 
-class SongRepository: Repository {
+class SongRepository{
+    
+    let service = CoreDataService<Song>()
+    var songs: [Song] = []
+
+    
+    func addSong(title: String, album: Album) -> Song? {
+        let song = service.new()
+        song?.name = title
+        album.addToSongs(song!)
+        if service.save() {return song}
+        return nil
+    }
+}
+
+extension SongRepository : Repository {
     
     typealias Object = Song
     typealias ObjectDTO = AlbumDTO
-
-    let service = CoreDataService<Song>()
-    var songs: [Song] = []
 
     func getAll() -> [Song] {
         guard let songs = service.fetchAll() else { return self.songs }
@@ -22,14 +34,6 @@ class SongRepository: Repository {
     }
     
     func add(object: AlbumDTO) -> Song? {
-        return nil
-    }
-    
-    func addSong(title: String, album: Album) -> Song? {
-        let song = service.new()
-        song?.name = title
-        album.addToSongs(song!)
-        if service.save() {return song}
         return nil
     }
 }

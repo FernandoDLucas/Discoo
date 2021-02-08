@@ -11,10 +11,8 @@ class AlbumViewModel {
     
     let album : Album
     
-    let repository = AlbumRepository()
-    
-    let songRepository = SongRepository()
-    
+    let repository = SongRepository()
+        
     var songs = [SongViewModel]()
     
     var handleUpdate: (() -> Void)?
@@ -56,7 +54,7 @@ extension  AlbumViewModel{
         return songs.count
     }
     public func addSong(title: String) {
-        _ = songRepository.addSong(title: title, album: self.album)
+        _ = repository.addSong(title: title, album: self.album)
         self.handleUpdate?()
     }
     

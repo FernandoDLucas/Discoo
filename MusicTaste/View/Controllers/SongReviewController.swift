@@ -20,12 +20,12 @@ class SongReviewController : UIViewController{
         fatalError("init(coder:) has not been implemented")
     }
     
-    var textField : UITextField = {
-        let tf = UITextField()
+    var textField : UITextView = {
+        let tf = UITextView()
         tf.translatesAutoresizingMaskIntoConstraints = false
         tf.textAlignment = .justified
         tf.textAlignment = .left
-        tf.contentVerticalAlignment = .top
+        tf.font = .systemFont(ofSize: 13)
         return tf
     }()
     
@@ -51,16 +51,16 @@ class SongReviewController : UIViewController{
         NSLayoutConstraint.activate([
             textField.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 17),
             textField.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
-            textField.widthAnchor.constraint(equalTo: self.view.widthAnchor)
+            textField.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 17),
+            textField.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -17)
         ])
     }
 }
 
-extension SongReviewController : UITextFieldDelegate {
+extension SongReviewController : UITextViewDelegate {
     
-    func textFieldDidEndEditing(_ textField: UITextField) {
+    func textViewDidEndEditing(_ textView: UITextView) {
         viewModel.didUpdateTextField(txt: textField.text!)
     }
-
 }
 

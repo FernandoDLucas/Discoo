@@ -7,13 +7,19 @@
 
 import Foundation
 
-class AlbumRepository: Repository {
+class AlbumRepository{
     
-    typealias Object = Album
-    typealias ObjectDTO = AlbumDTO
-
     let service = CoreDataService<Album>()
     var albuns: [Album] = []
+    
+    func addSong(title: String, album: Album) -> Album? {
+        return nil
+    }
+}
+
+extension AlbumRepository : Repository {
+    typealias Object = Album
+    typealias ObjectDTO = AlbumDTO
 
     func getAll() -> [Album] {
         guard let albuns = service.fetchAll() else { return self.albuns }
@@ -28,10 +34,6 @@ class AlbumRepository: Repository {
         album?.artwork = object.artwork
         album?.year = object.year
         if service.save() {return album}
-        return nil
-    }
-    
-    func addSong(title: String, album: Album) -> Album? {
         return nil
     }
 }
