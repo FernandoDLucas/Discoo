@@ -8,13 +8,13 @@
 import Foundation
 
 class AlbumViewModel {
-    
-    let album : Album
-    
+
+    let album: Album
+
     let repository = SongRepository()
-        
+
     var songs = [SongViewModel]()
-    
+
     var handleUpdate: (() -> Void)?
 
     init(album: Album) {
@@ -22,26 +22,25 @@ class AlbumViewModel {
     }
 }
 
-extension AlbumViewModel{
+extension AlbumViewModel {
     public var name: String? {
         return album.name
     }
-    
+
     public var artist: String? {
         return album.artist
     }
-    
+
     public var artwork: Data? {
         return album.artwork
     }
-    
+
     public var year: Int32 {
         return album.year
     }
 }
 
-extension  AlbumViewModel{
-    
+extension  AlbumViewModel {
     public func getAll() {
         let array = album.getSongs()
         self.songs = array.map {
@@ -49,16 +48,16 @@ extension  AlbumViewModel{
         }
         self.handleUpdate?()
     }
-    
-    public var numberOfSongs : Int{
+
+    public var numberOfSongs: Int {
         return songs.count
     }
     public func addSong(title: String) {
         _ = repository.addSong(title: title, album: self.album)
         self.handleUpdate?()
     }
-    
-    public func songForRow(at index: Int) -> Song{
+
+    public func songForRow(at index: Int) -> Song {
         return songs[index].song
     }
 }

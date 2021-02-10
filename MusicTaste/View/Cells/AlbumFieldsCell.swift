@@ -11,8 +11,8 @@ protocol AlbumFieldsDelegate: class {
     func didUpdateTextField(text: String, field: AlbumFields)
 }
 
-class AlbumFieldsCell : UITableViewCell, UITextFieldDelegate {
-    
+class AlbumFieldsCell: UITableViewCell, UITextFieldDelegate {
+
     weak var delegate: AlbumFieldsDelegate?
     static let reuseIdentifier = "AlbumFieldCell"
     var identifier: AlbumFields?
@@ -21,6 +21,7 @@ class AlbumFieldsCell : UITableViewCell, UITextFieldDelegate {
         let textField = UITextField()
         textField.backgroundColor = .systemBackground
         textField.adjustsFontSizeToFitWidth = true
+        textField.font = .systemFont(ofSize: 15)
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
@@ -28,8 +29,9 @@ class AlbumFieldsCell : UITableViewCell, UITextFieldDelegate {
     let label: UILabel = {
         let label = UILabel()
         label.text = "Teste"
-        label.font = .systemFont(ofSize: 10, weight: .regular)
+        label.font = .systemFont(ofSize: 15, weight: .regular)
         label.textColor = .label
+        label.isUserInteractionEnabled = false
         label.adjustsFontSizeToFitWidth = true
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -46,19 +48,21 @@ class AlbumFieldsCell : UITableViewCell, UITextFieldDelegate {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    private func setup(){
+
+    private func setup() {
         self.contentView.isUserInteractionEnabled = false
+        self.selectionStyle = .none
         self.addSubview(label)
         self.addSubview(textField)
     }
-    
-    public func configure(fieldName : String) {
+
+    public func configure(fieldName: String) {
         self.textField.delegate = self
         self.label.text = fieldName
+        self.textField.placeholder = fieldName
         self.identifier = AlbumFields(rawValue: fieldName)
     }
-    
+
     private func configureLayout() {
         self.textField.clearButtonMode = .always
         NSLayoutConstraint.activate([
@@ -75,7 +79,7 @@ class AlbumFieldsCell : UITableViewCell, UITextFieldDelegate {
 }
 
 extension AlbumFieldsCell {
-    
+
     @objc func didChanged(textField: UITextField) {
         if let text = textField.text, let identifier = self.identifier {
             self.delegate?.didUpdateTextField(text: text, field: identifier)

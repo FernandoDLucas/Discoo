@@ -14,7 +14,6 @@ public class Song: NSManagedObject {
 
 }
 
-
 extension Song {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<Song> {
@@ -27,6 +26,6 @@ extension Song {
 
 }
 
-extension Song : Identifiable {
+extension Song: Identifiable {
 
 }

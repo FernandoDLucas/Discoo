@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		EC57920D25CAC97A00A5440F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC57920C25CAC97A00A5440F /* AppDelegate.swift */; };
 		EC57920F25CAC97A00A5440F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC57920E25CAC97A00A5440F /* SceneDelegate.swift */; };
-		EC57921125CAC97A00A5440F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC57921025CAC97A00A5440F /* ViewController.swift */; };
-		EC57921425CAC97A00A5440F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC57921225CAC97A00A5440F /* Main.storyboard */; };
 		EC57921725CAC97A00A5440F /* MusicTaste.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EC57921525CAC97A00A5440F /* MusicTaste.xcdatamodeld */; };
 		EC57921925CAC97C00A5440F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC57921825CAC97C00A5440F /* Assets.xcassets */; };
 		EC57921C25CAC97C00A5440F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC57921A25CAC97C00A5440F /* LaunchScreen.storyboard */; };
@@ -34,6 +32,9 @@
 		EC5792B925CB259600A5440F /* AlbumForms.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5792B825CB259600A5440F /* AlbumForms.swift */; };
 		EC79147B25CD7E8300BC3429 /* SongRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC79147A25CD7E8300BC3429 /* SongRepository.swift */; };
 		EC9291AC25CC0E1100BDCBE6 /* AlbumDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9291AB25CC0E1100BDCBE6 /* AlbumDTO.swift */; };
+		ECD06E1B25D1A1BF005D862A /* AlbumRepositoryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD06E1A25D1A1BF005D862A /* AlbumRepositoryTest.swift */; };
+		ECD06E2825D2B903005D862A /* AlbumViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD06E2725D2B903005D862A /* AlbumViewModelTest.swift */; };
+		ECD06E4225D2C20A005D862A /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = ECD06E4125D2C20A005D862A /* .swiftlint.yml */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,8 +58,6 @@
 		EC57920925CAC97A00A5440F /* MusicTaste.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicTaste.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC57920C25CAC97A00A5440F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EC57920E25CAC97A00A5440F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		EC57921025CAC97A00A5440F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		EC57921325CAC97A00A5440F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EC57921625CAC97A00A5440F /* MusicTaste.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MusicTaste.xcdatamodel; sourceTree = "<group>"; };
 		EC57921825CAC97C00A5440F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EC57921B25CAC97C00A5440F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -87,6 +86,9 @@
 		EC5792B825CB259600A5440F /* AlbumForms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumForms.swift; sourceTree = "<group>"; };
 		EC79147A25CD7E8300BC3429 /* SongRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongRepository.swift; sourceTree = "<group>"; };
 		EC9291AB25CC0E1100BDCBE6 /* AlbumDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDTO.swift; sourceTree = "<group>"; };
+		ECD06E1A25D1A1BF005D862A /* AlbumRepositoryTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumRepositoryTest.swift; sourceTree = "<group>"; };
+		ECD06E2725D2B903005D862A /* AlbumViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumViewModelTest.swift; sourceTree = "<group>"; };
+		ECD06E4125D2C20A005D862A /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +119,7 @@
 		EC57920025CAC97A00A5440F = {
 			isa = PBXGroup;
 			children = (
+				ECD06E4125D2C20A005D862A /* .swiftlint.yml */,
 				EC57920B25CAC97A00A5440F /* MusicTaste */,
 				EC57922525CAC97C00A5440F /* MusicTasteTests */,
 				EC57923025CAC97C00A5440F /* MusicTasteUITests */,
@@ -144,8 +147,6 @@
 				EC57924D25CACDF100A5440F /* Model */,
 				EC57920C25CAC97A00A5440F /* AppDelegate.swift */,
 				EC57920E25CAC97A00A5440F /* SceneDelegate.swift */,
-				EC57921025CAC97A00A5440F /* ViewController.swift */,
-				EC57921225CAC97A00A5440F /* Main.storyboard */,
 				EC57921825CAC97C00A5440F /* Assets.xcassets */,
 				EC57921A25CAC97C00A5440F /* LaunchScreen.storyboard */,
 				EC57921D25CAC97C00A5440F /* Info.plist */,
@@ -159,6 +160,8 @@
 			children = (
 				EC57922625CAC97C00A5440F /* MusicTasteTests.swift */,
 				EC57922825CAC97C00A5440F /* Info.plist */,
+				ECD06E1A25D1A1BF005D862A /* AlbumRepositoryTest.swift */,
+				ECD06E2725D2B903005D862A /* AlbumViewModelTest.swift */,
 			);
 			path = MusicTasteTests;
 			sourceTree = "<group>";
@@ -275,6 +278,7 @@
 				EC57920525CAC97A00A5440F /* Sources */,
 				EC57920625CAC97A00A5440F /* Frameworks */,
 				EC57920725CAC97A00A5440F /* Resources */,
+				ECD06E2C25D2BD11005D862A /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -368,9 +372,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECD06E4225D2C20A005D862A /* .swiftlint.yml in Resources */,
 				EC57921C25CAC97C00A5440F /* LaunchScreen.storyboard in Resources */,
 				EC57921925CAC97C00A5440F /* Assets.xcassets in Resources */,
-				EC57921425CAC97A00A5440F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -390,6 +394,26 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		ECD06E2C25D2BD11005D862A /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		EC57920525CAC97A00A5440F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -399,7 +423,6 @@
 				EC57927625CAD74F00A5440F /* AlbumListViewModel.swift in Sources */,
 				EC9291AC25CC0E1100BDCBE6 /* AlbumDTO.swift in Sources */,
 				EC57924825CACDDD00A5440F /* Song.swift in Sources */,
-				EC57921125CAC97A00A5440F /* ViewController.swift in Sources */,
 				EC57926C25CAD6AA00A5440F /* AlbumRepository.swift in Sources */,
 				EC57928E25CADACD00A5440F /* HomeViewController.swift in Sources */,
 				EC57926725CAD69900A5440F /* Repository.swift in Sources */,
@@ -425,6 +448,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				EC57922725CAC97C00A5440F /* MusicTasteTests.swift in Sources */,
+				ECD06E1B25D1A1BF005D862A /* AlbumRepositoryTest.swift in Sources */,
+				ECD06E2825D2B903005D862A /* AlbumViewModelTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -452,14 +477,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		EC57921225CAC97A00A5440F /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				EC57921325CAC97A00A5440F /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		EC57921A25CAC97C00A5440F /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -599,7 +616,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "Fernando-de-Lucas.MusicTaste";
+				PRODUCT_BUNDLE_IDENTIFIER = "Fernando-de-Lucas.Disco";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -618,7 +635,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "Fernando-de-Lucas.MusicTaste";
+				PRODUCT_BUNDLE_IDENTIFIER = "Fernando-de-Lucas.Disco";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

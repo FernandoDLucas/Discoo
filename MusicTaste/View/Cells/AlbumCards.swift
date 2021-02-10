@@ -7,20 +7,20 @@
 
 import UIKit
 
-class AlbumCards : UICollectionViewCell {
-    
-    static let reuseIdentifier = "AlbumCards"
-    var cover : UIImage?
+class AlbumCards: UICollectionViewCell {
 
-    let artworkImage : UIImageView = {
+    static let reuseIdentifier = "AlbumCards"
+    var cover: UIImage?
+
+    let artworkImage: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         return imageView
     }()
-    
-    let albumLabel : UILabel = {
+
+    let albumLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
         label.adjustsFontSizeToFitWidth = true
@@ -28,8 +28,8 @@ class AlbumCards : UICollectionViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-    
-    let artistLabel : UILabel = {
+
+    let artistLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
         label.adjustsFontSizeToFitWidth = true
@@ -37,8 +37,8 @@ class AlbumCards : UICollectionViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-    
-    let yearLabel : UILabel = {
+
+    let yearLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
         label.adjustsFontSizeToFitWidth = true
@@ -46,8 +46,8 @@ class AlbumCards : UICollectionViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-    
-    let stackView : UIStackView = {
+
+    let stackView: UIStackView = {
         let stack = UIStackView()
         stack.translatesAutoresizingMaskIntoConstraints = false
         return stack
@@ -64,7 +64,7 @@ class AlbumCards : UICollectionViewCell {
         setupConstraints()
     }
 
-    func setupView(){
+    func setupView() {
         self.addSubview(artworkImage)
         let arrayOfLabels = [albumLabel, artistLabel, yearLabel]
         arrayOfLabels.forEach {
@@ -79,24 +79,29 @@ class AlbumCards : UICollectionViewCell {
         stackView.axis = .vertical
         stackView.distribution = .equalSpacing
     }
-    
-    func setupConstraints(){
+
+    func setupConstraints() {
         NSLayoutConstraint.activate([
             artworkImage.topAnchor.constraint(equalTo: self.topAnchor),
             artworkImage.widthAnchor.constraint(equalTo: self.widthAnchor),
             artworkImage.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.65),
-            
+
             stackView.topAnchor.constraint(equalTo: self.artworkImage.bottomAnchor, constant: 5),
             stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
             stackView.widthAnchor.constraint(equalTo: self.widthAnchor),
             stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
         ])
     }
-    
-    func configure(image: Data, artist: String, year: Int32, name: String){
+
+    func configure(image: Data, artist: String, year: Int32, name: String) {
         artworkImage.image = UIImage(data: image)
         artistLabel.text = artist
-        yearLabel.text = String(year)
+        yearLabel.text = {
+            if year == 0 {
+                return " "
+            }
+            return String(year)
+        }()
         albumLabel.text = name
     }
 }

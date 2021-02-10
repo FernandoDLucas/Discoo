@@ -7,15 +7,14 @@
 
 import Foundation
 
-
 class AlbumListViewModel {
-    
+
     var albuns = [AlbumViewModel]()
-    
+
     let repository = AlbumRepository()
-    
+
     var handleUpdate: (() -> Void)?
-    
+
 }
 
 extension AlbumListViewModel {
@@ -24,20 +23,17 @@ extension AlbumListViewModel {
         let arrayList = array.compactMap(AlbumViewModel.init)
         self.albuns = arrayList
     }
-    
-    public var numberOfAlbuns: Int{
+
+    public var numberOfAlbuns: Int {
         return self.albuns.count
     }
-    
+
     public func albumForRow (at index: Int) -> AlbumViewModel? {
-        if numberOfAlbuns > index{
+        if numberOfAlbuns > index {
             let album = albuns[index]
             return album
         }
         return nil
     }
-    
-    @objc public func goTo(){
-        
-    }
+
 }

@@ -7,27 +7,30 @@
 
 import UIKit
 
-class CreateAlbumViewController : UIViewController {
-    
+class CreateAlbumViewController: UIViewController {
+
     var imageData = Data()
 
     let imagePicker = UIImagePickerController()
 
     let viewModel = CreateAlbumViewModel()
-    
-    let pickerView : UIImageView = {
+
+    public var callBack : (() -> Void)?
+
+    let pickerView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = .add
+        imageView.image = UIImage(named: "addIconNew")
         imageView.isUserInteractionEnabled = true
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         return imageView
     }()
-    
-     var tableView : UITableView = {
-        let tv = UITableView(frame: .zero, style: .grouped)
-        tv.translatesAutoresizingMaskIntoConstraints = false
-        return tv
+
+     var tableView: UITableView = {
+        let tableView = UITableView(frame: .zero, style: .grouped)
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.backgroundColor = .systemBackground
+        return tableView
     }()
 
     override func viewDidLoad() {
@@ -39,6 +42,7 @@ class CreateAlbumViewController : UIViewController {
         self.tableView.register(AlbumFieldsCell.self, forCellReuseIdentifier: AlbumFieldsCell.reuseIdentifier)
         self.viewModel.handleDismiss = {
             self.dismiss(animated: true, completion: nil)
+            self.callBack?()
         }
         configurateNavigationBar()
         setupPicker()
@@ -48,25 +52,39 @@ class CreateAlbumViewController : UIViewController {
     private func setupTableView() {
         self.view.addSubview(tableView)
         NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: self.pickerView.bottomAnchor),
+            tableView.topAnchor.constraint(equalTo: self.pickerView.bottomAnchor, constant: 17),
             tableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
             tableView.leftAnchor.constraint(equalTo: self.view.leftAnchor),
             tableView.rightAnchor.constraint(equalTo: self.view.rightAnchor)
         ])
     }
-    
+
     func configurateNavigationBar() {
        self.title = "Novo Album"
        self.isModalInPresentation = true
-        
+
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancelar", style: .done, target: self.viewModel,
                                                                 action: #selector(viewModel.cancelButton))
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Salvar", style: .done, target: self.viewModel,
-                                                                action: #selector(viewModel.saveButton))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Salvar", style: .done, target: self,
+                                                                action: #selector(attemptToSave))
    }
+
+    @objc func attemptToSave() {
+        if viewModel.albumDTO.artwork == nil {
+              let alert = UIAlertController(title: "Adicione a imagem",
+                                            message: "Adicione ao menos a capa do álbum para que ele seja salvo",
+                                            preferredStyle: .alert)
+              let okAction = UIAlertAction(title: "Ok",
+                                           style: .default)
+              alert.addAction(okAction)
+            self.present(alert, animated: true)
+        } else {
+            viewModel.saveButton()
+        }
+    }
 }
 
-extension CreateAlbumViewController : UITableViewDelegate, UITableViewDataSource{
+extension CreateAlbumViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.numberOfRows
     }
@@ -81,9 +99,8 @@ extension CreateAlbumViewController : UITableViewDelegate, UITableViewDataSource
     }
 }
 
+extension CreateAlbumViewController {
 
-extension CreateAlbumViewController{
-    
     func setupPicker() {
         view.addSubview(pickerView)
         pickerView.translatesAutoresizingMaskIntoConstraints = false
@@ -94,8 +111,8 @@ extension CreateAlbumViewController{
         let gesture = UITapGestureRecognizer(target: self, action: #selector(tootlePicker))
         pickerView.addGestureRecognizer(gesture)
     }
-    
-    @objc func tootlePicker(){
+
+    @objc func tootlePicker() {
         self.imagePicker.allowsEditing = false
         self.imagePicker.sourceType = .photoLibrary
         present(imagePicker, animated: true, completion: nil)

@@ -10,6 +10,8 @@ protocol Repository {
     associatedtype ObjectDTO
 
     func getAll() -> [Object]
-    
+
     func add(object: ObjectDTO) -> Object?
+
+    func delete(object: Object) -> Object?
 }

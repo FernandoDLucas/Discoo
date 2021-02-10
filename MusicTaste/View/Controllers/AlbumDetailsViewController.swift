@@ -7,26 +7,27 @@
 
 import UIKit
 
-class AlbumDetailsViewController : UIViewController{
-    
-    let viewModel : AlbumViewModel
-    
-    init(_ album: Album){
+class AlbumDetailsViewController: UIViewController {
+
+    let viewModel: AlbumViewModel
+
+    init(_ album: Album) {
         self.viewModel = AlbumViewModel(album: album)
         super.init(nibName: nil, bundle: nil)
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    var tableView : UITableView = {
-       let tv = UITableView(frame: .zero, style: .grouped)
-       tv.translatesAutoresizingMaskIntoConstraints = false
-        tv.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
-       return tv
+
+    var tableView: UITableView = {
+       let tableView = UITableView(frame: .zero, style: .grouped)
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        tableView.backgroundColor = .systemBackground
+       return tableView
    }()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
@@ -40,47 +41,38 @@ class AlbumDetailsViewController : UIViewController{
         configureNavigation()
         setupTableView()
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         viewModel.getAll()
-        print(viewModel.album)
+
     }
-    
+
     private func configureNavigation() {
         self.title = viewModel.name
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(add))
     }
-    
-    @objc func add(_ sender: UIBarButtonItem){
-          
+
+    @objc func add(_ sender: UIBarButtonItem) {
           let alert = UIAlertController(title: "Add Song",
                                         message: "Add a new name",
                                         preferredStyle: .alert)
-        
-          let saveAction = UIAlertAction(title: "Save",
-                                         style: .default) {
-            [unowned self] action in
-                                          
+          let saveAction = UIAlertAction(title: "Save", style: .default) { _ in
             guard let textField = alert.textFields?.first,
               let nameOfSong = textField.text else {
                 return
             }
-            viewModel.addSong(title: nameOfSong)
-            viewModel.getAll()
+            self.viewModel.addSong(title: nameOfSong)
+            self.viewModel.getAll()
           }
-          
           let cancelAction = UIAlertAction(title: "Cancel",
                                            style: .cancel)
-          
           alert.addTextField()
-          
           alert.addAction(saveAction)
           alert.addAction(cancelAction)
-          
           present(alert, animated: true)
     }
-    
+
     private func setupTableView() {
         self.view.addSubview(tableView)
         NSLayoutConstraint.activate([
@@ -90,10 +82,10 @@ class AlbumDetailsViewController : UIViewController{
             tableView.rightAnchor.constraint(equalTo: self.view.rightAnchor)
         ])
     }
-    
+
 }
 
-extension AlbumDetailsViewController : UITableViewDelegate, UITableViewDataSource{
+extension AlbumDetailsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.numberOfSongs
     }
@@ -106,10 +98,17 @@ extension AlbumDetailsViewController : UITableViewDelegate, UITableViewDataSourc
         cell.contentConfiguration = content
         return cell
     }
-    
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let song = viewModel.songForRow(at: indexPath.row)
         navigationController?.pushViewController(SongReviewController(song), animated: true)
     }
-}
 
+//    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+//        let rotation = CATransform3DTranslate(CATransform3DIdentity, +500, 0, 0)
+//        cell.layer.transform = rotation
+//        UIView.animate(withDuration: 0.5) {
+//            cell.layer.transform = CATransform3DIdentity
+//        }
+//    }
+}

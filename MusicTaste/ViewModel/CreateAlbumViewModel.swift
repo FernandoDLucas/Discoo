@@ -7,34 +7,34 @@
 
 import Foundation
 
-class CreateAlbumViewModel{
-    
+class CreateAlbumViewModel {
+
     let form = AlbumForm.create
     var albumDTO = AlbumDTO.empty
     let repository = AlbumRepository()
-    
+
     var handleDismiss: (() -> Void)?
 }
 
-extension CreateAlbumViewModel{
-    
-    var numberOfRows : Int{
+extension CreateAlbumViewModel {
+
+    var numberOfRows: Int {
         return form.fields.count
     }
-    
+
     public func fieldName(row: Int) -> String? {
         return form.fields[row]
     }
-    
-    func addAlbum(){
+
+    func addAlbum() {
         _ = repository.add(object: albumDTO)
         handleDismiss?()
     }
-    
+
     func getImage(data: Data) {
         self.albumDTO.artwork = data
     }
-    
+
     @objc func saveButton() {
         guard albumDTO.artwork != nil else {
             handleDismiss?()
@@ -43,14 +43,14 @@ extension CreateAlbumViewModel{
         _ = repository.add(object: albumDTO)
         handleDismiss?()
     }
-    
-    @objc func cancelButton(){
+
+    @objc func cancelButton() {
         handleDismiss?()
     }
-    
+
 }
 
-extension CreateAlbumViewModel: AlbumFieldsDelegate{
+extension CreateAlbumViewModel: AlbumFieldsDelegate {
     func didUpdateTextField(text: String, field: AlbumFields) {
         switch field {
         case .name:

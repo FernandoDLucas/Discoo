@@ -14,8 +14,6 @@ public class Album: NSManagedObject {
 
 }
 
-
-
 extension Album {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<Album> {
@@ -47,10 +45,9 @@ extension Album {
 
 }
 
-extension Album : Identifiable {
+extension Album: Identifiable {
 
 }
-
 
 struct Schema {
     enum Field: String {
@@ -61,8 +58,8 @@ struct Schema {
 extension Album {
     func getSongs() -> [Song] {
         let songSet = self.songs as! Set<Song>
-        let songArray = songSet.map { Song in
-            return Song
+        let songArray = songSet.map { song in
+            return song
         }
         return songArray
     }
