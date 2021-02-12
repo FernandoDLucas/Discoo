@@ -16,6 +16,7 @@ class HomeViewController: UIViewController {
         collectionView.register(AlbumCards.self, forCellWithReuseIdentifier: AlbumCards.reuseIdentifier)
         collectionView.backgroundColor = .systemBackground
         collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.showsVerticalScrollIndicator = false
         return collectionView
     }()
 
@@ -41,7 +42,7 @@ class HomeViewController: UIViewController {
 
     private func configureNavigation() {
         self.navigationController?.navigationBar.prefersLargeTitles = true
-        self.title = "Disco"
+        self.title = "Discoo"
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(add))
     }
 

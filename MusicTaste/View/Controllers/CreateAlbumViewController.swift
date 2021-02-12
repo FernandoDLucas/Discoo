@@ -34,7 +34,6 @@ class CreateAlbumViewController: UIViewController {
     }()
 
     override func viewDidLoad() {
-        super.viewDidLoad()
         self.view.backgroundColor = .systemBackground
         self.tableView.delegate = self
         self.tableView.dataSource = self
