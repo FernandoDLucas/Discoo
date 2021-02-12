@@ -11,7 +11,7 @@ class AlbumCards: UICollectionViewCell {
 
     static let reuseIdentifier = "AlbumCards"
     var cover: UIImage?
-
+    
     let artworkImage: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -103,5 +103,13 @@ class AlbumCards: UICollectionViewCell {
             return String(year)
         }()
         albumLabel.text = name
+    }
+
+    func animate() {
+        Animations.shakingAnimation(on: self)
+    }
+    
+    func stopAnimation() {
+        self.layer.removeAllAnimations()
     }
 }

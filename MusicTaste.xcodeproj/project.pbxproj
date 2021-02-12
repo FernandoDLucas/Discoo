@@ -30,6 +30,9 @@
 		EC5792AB25CADEF900A5440F /* AlbumCards.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5792AA25CADEF900A5440F /* AlbumCards.swift */; };
 		EC5792B325CB204000A5440F /* AlbumFieldsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5792B225CB204000A5440F /* AlbumFieldsCell.swift */; };
 		EC5792B925CB259600A5440F /* AlbumForms.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5792B825CB259600A5440F /* AlbumForms.swift */; };
+		EC67D3B625D6A0230085B02B /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC67D3B525D6A0230085B02B /* UIImage.swift */; };
+		EC67D3BF25D6A6250085B02B /* ShakingAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC67D3BE25D6A6250085B02B /* ShakingAnimation.swift */; };
+		EC67D3C825D6B9AC0085B02B /* ExtensionHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC67D3C725D6B9AC0085B02B /* ExtensionHomeViewController.swift */; };
 		EC79147B25CD7E8300BC3429 /* SongRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC79147A25CD7E8300BC3429 /* SongRepository.swift */; };
 		EC9291AC25CC0E1100BDCBE6 /* AlbumDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9291AB25CC0E1100BDCBE6 /* AlbumDTO.swift */; };
 		ECD06E1B25D1A1BF005D862A /* AlbumRepositoryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD06E1A25D1A1BF005D862A /* AlbumRepositoryTest.swift */; };
@@ -84,6 +87,9 @@
 		EC5792AA25CADEF900A5440F /* AlbumCards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumCards.swift; sourceTree = "<group>"; };
 		EC5792B225CB204000A5440F /* AlbumFieldsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumFieldsCell.swift; sourceTree = "<group>"; };
 		EC5792B825CB259600A5440F /* AlbumForms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumForms.swift; sourceTree = "<group>"; };
+		EC67D3B525D6A0230085B02B /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
+		EC67D3BE25D6A6250085B02B /* ShakingAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShakingAnimation.swift; sourceTree = "<group>"; };
+		EC67D3C725D6B9AC0085B02B /* ExtensionHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionHomeViewController.swift; sourceTree = "<group>"; };
 		EC79147A25CD7E8300BC3429 /* SongRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongRepository.swift; sourceTree = "<group>"; };
 		EC9291AB25CC0E1100BDCBE6 /* AlbumDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDTO.swift; sourceTree = "<group>"; };
 		ECD06E1A25D1A1BF005D862A /* AlbumRepositoryTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumRepositoryTest.swift; sourceTree = "<group>"; };
@@ -140,6 +146,7 @@
 		EC57920B25CAC97A00A5440F /* MusicTaste */ = {
 			isa = PBXGroup;
 			children = (
+				EC67D3B425D6A0060085B02B /* Extensions */,
 				EC57925D25CAD43D00A5440F /* Repository */,
 				EC57925C25CAD43000A5440F /* Service */,
 				EC57925B25CAD42900A5440F /* ViewModel */,
@@ -188,6 +195,7 @@
 		EC57925A25CAD42000A5440F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				EC67D3BD25D6A6150085B02B /* Animations */,
 				EC5792A925CADEED00A5440F /* Cells */,
 				EC57928425CADA9700A5440F /* Controllers */,
 			);
@@ -226,8 +234,8 @@
 		EC57928425CADA9700A5440F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				EC67D3C625D6B97C0085B02B /* HomeViewController */,
 				EC57928525CADABF00A5440F /* AlbumDetailsViewController.swift */,
-				EC57928D25CADACD00A5440F /* HomeViewController.swift */,
 				EC57929225CADAE000A5440F /* CreateAlbumViewController.swift */,
 				EC57929925CADB0500A5440F /* SongReviewController.swift */,
 			);
@@ -249,6 +257,31 @@
 				EC5792B825CB259600A5440F /* AlbumForms.swift */,
 			);
 			path = Fields;
+			sourceTree = "<group>";
+		};
+		EC67D3B425D6A0060085B02B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				EC67D3B525D6A0230085B02B /* UIImage.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		EC67D3BD25D6A6150085B02B /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				EC67D3BE25D6A6250085B02B /* ShakingAnimation.swift */,
+			);
+			path = Animations;
+			sourceTree = "<group>";
+		};
+		EC67D3C625D6B97C0085B02B /* HomeViewController */ = {
+			isa = PBXGroup;
+			children = (
+				EC57928D25CADACD00A5440F /* HomeViewController.swift */,
+				EC67D3C725D6B9AC0085B02B /* ExtensionHomeViewController.swift */,
+			);
+			path = HomeViewController;
 			sourceTree = "<group>";
 		};
 		EC9291A925CC0DEB00BDCBE6 /* Album */ = {
@@ -420,14 +453,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				EC57925F25CAD5FE00A5440F /* CoreDataService.swift in Sources */,
+				EC67D3B625D6A0230085B02B /* UIImage.swift in Sources */,
 				EC57927625CAD74F00A5440F /* AlbumListViewModel.swift in Sources */,
 				EC9291AC25CC0E1100BDCBE6 /* AlbumDTO.swift in Sources */,
 				EC57924825CACDDD00A5440F /* Song.swift in Sources */,
 				EC57926C25CAD6AA00A5440F /* AlbumRepository.swift in Sources */,
 				EC57928E25CADACD00A5440F /* HomeViewController.swift in Sources */,
 				EC57926725CAD69900A5440F /* Repository.swift in Sources */,
+				EC67D3BF25D6A6250085B02B /* ShakingAnimation.swift in Sources */,
 				EC5792AB25CADEF900A5440F /* AlbumCards.swift in Sources */,
 				EC57928625CADABF00A5440F /* AlbumDetailsViewController.swift in Sources */,
+				EC67D3C825D6B9AC0085B02B /* ExtensionHomeViewController.swift in Sources */,
 				EC57921725CAC97A00A5440F /* MusicTaste.xcdatamodeld in Sources */,
 				EC57920D25CAC97A00A5440F /* AppDelegate.swift in Sources */,
 				EC79147B25CD7E8300BC3429 /* SongRepository.swift in Sources */,
