@@ -9,8 +9,6 @@ import UIKit
 
 class CreateAlbumViewController: UIViewController {
 
-    var imageData = Data()
-
     let imagePicker = UIImagePickerController()
 
     let viewModel = CreateAlbumViewModel()
@@ -121,9 +119,9 @@ extension CreateAlbumViewController {
 extension CreateAlbumViewController: UIImagePickerControllerDelegate & UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-            if let data = image.pngData() {
-                pickerView.image = UIImage(data: data)
-                imageData = data
+                let fixedImage = image.fixedOrientation
+                pickerView.image = fixedImage
+                if let data = fixedImage.pngData() {
                 viewModel.getImage(data: data)
             }
         }

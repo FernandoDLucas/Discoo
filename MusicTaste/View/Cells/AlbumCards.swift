@@ -32,8 +32,8 @@ class AlbumCards: UICollectionViewCell {
     let albumLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
-        label.adjustsFontSizeToFitWidth = true
         label.font = .boldSystemFont(ofSize: 14)
+        label.adjustsFontSizeToFitWidth = true
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -41,8 +41,8 @@ class AlbumCards: UICollectionViewCell {
     let artistLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
-        label.adjustsFontSizeToFitWidth = true
         label.font = .systemFont(ofSize: 11)
+        label.adjustsFontSizeToFitWidth = true
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -50,8 +50,8 @@ class AlbumCards: UICollectionViewCell {
     let yearLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
-        label.adjustsFontSizeToFitWidth = true
         label.font = .systemFont(ofSize: 10)
+        label.adjustsFontSizeToFitWidth = true
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -95,8 +95,6 @@ class AlbumCards: UICollectionViewCell {
         self.addSubview(stackView)
         arrayOfLabels.forEach {
             $0.translatesAutoresizingMaskIntoConstraints = false
-            $0.heightAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.1).isActive = true
-            $0.widthAnchor.constraint(equalTo: self.widthAnchor).isActive = true
         }
         stackView.axis = .vertical
         stackView.distribution = .equalSpacing
@@ -109,8 +107,7 @@ class AlbumCards: UICollectionViewCell {
             artworkImage.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.65),
             artworkImage.centerXAnchor.constraint(equalTo: self.centerXAnchor),
 
-            stackView.topAnchor.constraint(equalTo: self.artworkImage.bottomAnchor, constant: 5),
-            stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            stackView.topAnchor.constraint(equalTo: artworkImage.bottomAnchor),
             stackView.widthAnchor.constraint(equalTo: self.widthAnchor),
             stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
         ])

@@ -91,6 +91,7 @@ extension HomeViewController {
         let okAction = UIAlertAction(title: "Deletar",
                                      style: .default) { _ in
             self.viewModel.deleteAlbum(album: album)
+            self.editingState = false 
         }
         let deleteAction = UIAlertAction(title: "Cancelar",
                                      style: .cancel)
