@@ -33,6 +33,12 @@ class HomeViewController: UIViewController {
         return gesture
     }()
 
+    let invisibleView: UIView = {
+       let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+    return view
+    }()
+
     var editingState: Bool = false
 
     let viewModel = AlbumListViewModel()
@@ -43,16 +49,23 @@ class HomeViewController: UIViewController {
         collectionView.dataSource = self
         viewModel.handleUpdate = {
             DispatchQueue.main.async {
+                self.viewModel.getAll()
                 self.collectionView.reloadData()
             }
         }
         configureNavigation()
+        setupInvisibleView()
         setupCollectionView()
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+        navigationItem.largeTitleDisplayMode = .always
         viewModel.getAll()
+        collectionView.backgroundView = UIView(frame: self.view.frame)
         self.view.addGestureRecognizer(longPressedGesture)
     }
+}
+
+protocol DeleteCardDelegate: class {
+    func didSelectDelete(at: Int)
 }

@@ -12,10 +12,10 @@ class Animations {
         let animation = CABasicAnimation(keyPath: "position")
         animation.duration = 0.1
         animation.repeatCount = .infinity
+        animation.beginTime = CFTimeInterval(Float.random(in: 0...2))
         animation.autoreverses = true
         animation.fromValue = NSValue(cgPoint: CGPoint(x: onView.center.x - 1, y: onView.center.y + 1))
         animation.toValue = NSValue(cgPoint: CGPoint(x: onView.center.x + 1, y: onView.center.y - 1))
         onView.layer.add(animation, forKey: "position")
     }
-    
 }

@@ -36,4 +36,9 @@ extension AlbumListViewModel {
         return nil
     }
 
+    public func deleteAlbum (album: Album) {
+        _ = repository.delete(object: album)
+        handleUpdate?()
+    }
+
 }

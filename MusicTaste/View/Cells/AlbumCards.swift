@@ -11,7 +11,9 @@ class AlbumCards: UICollectionViewCell {
 
     static let reuseIdentifier = "AlbumCards"
     var cover: UIImage?
-    
+    weak var delegate: DeleteCardDelegate?
+    var row: Int = 0
+
     let artworkImage: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -19,6 +21,13 @@ class AlbumCards: UICollectionViewCell {
         imageView.clipsToBounds = true
         return imageView
     }()
+
+    override func prepareForReuse() {
+        albumLabel.text = ""
+        artistLabel.text = ""
+        yearLabel.text = ""
+        stopAnimation()
+    }
 
     let albumLabel: UILabel = {
         let label = UILabel()
@@ -33,7 +42,7 @@ class AlbumCards: UICollectionViewCell {
         let label = UILabel()
         label.textAlignment = .center
         label.adjustsFontSizeToFitWidth = true
-        label.font = .systemFont(ofSize: 14)
+        label.font = .systemFont(ofSize: 11)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -52,6 +61,19 @@ class AlbumCards: UICollectionViewCell {
         stack.translatesAutoresizingMaskIntoConstraints = false
         return stack
     }()
+
+    let removeView: UIView = {
+        let imageView = UIImageView()
+        imageView.image = .remove
+        imageView.isUserInteractionEnabled = true
+        imageView.layer.shadowColor = UIColor.black.cgColor
+        imageView.layer.shadowOffset = CGSize(width: 0, height: 1)
+        imageView.layer.shadowOpacity = 1
+        imageView.layer.shadowRadius = 1.0
+        imageView.clipsToBounds = false
+        return imageView
+    }()
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
@@ -82,9 +104,10 @@ class AlbumCards: UICollectionViewCell {
 
     func setupConstraints() {
         NSLayoutConstraint.activate([
-            artworkImage.topAnchor.constraint(equalTo: self.topAnchor),
-            artworkImage.widthAnchor.constraint(equalTo: self.widthAnchor),
+            artworkImage.topAnchor.constraint(equalTo: self.topAnchor, constant: 15),
+            artworkImage.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.8),
             artworkImage.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.65),
+            artworkImage.centerXAnchor.constraint(equalTo: self.centerXAnchor),
 
             stackView.topAnchor.constraint(equalTo: self.artworkImage.bottomAnchor, constant: 5),
             stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
@@ -107,9 +130,31 @@ class AlbumCards: UICollectionViewCell {
 
     func animate() {
         Animations.shakingAnimation(on: self)
+        addDeleteButton()
     }
-    
+
+    func addDeleteButton() {
+        self.addSubview(removeView)
+        removeView.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
+        removeView.alpha = 0
+        UIView.animate(withDuration: 0.2) {
+            self.removeView.alpha = 1
+        }
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(didSelectedDelete))
+        removeView.addGestureRecognizer(gesture)
+    }
+
     func stopAnimation() {
         self.layer.removeAllAnimations()
+        UIView.animate(withDuration: 0.2) {
+            self.removeView.alpha = 0
+        }
+        self.removeView.removeFromSuperview()
+    }
+}
+
+extension AlbumCards {
+    @objc func didSelectedDelete() {
+        self.delegate?.didSelectDelete(at: row)
     }
 }

@@ -60,4 +60,10 @@ extension  AlbumViewModel {
     public func songForRow(at index: Int) -> Song {
         return songs[index].song
     }
+
+    public func delete(at index: Int) {
+        let song = songForRow(at: index)
+        _ = repository.delete(object: song)
+        self.handleUpdate?()
+    }
 }

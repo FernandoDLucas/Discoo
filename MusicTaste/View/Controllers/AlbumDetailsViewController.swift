@@ -54,10 +54,10 @@ class AlbumDetailsViewController: UIViewController {
     }
 
     @objc func add(_ sender: UIBarButtonItem) {
-          let alert = UIAlertController(title: "Add Song",
-                                        message: "Add a new name",
+          let alert = UIAlertController(title: "Adicionar música",
+                                        message: "Adicione o nome da música",
                                         preferredStyle: .alert)
-          let saveAction = UIAlertAction(title: "Save", style: .default) { _ in
+          let saveAction = UIAlertAction(title: "Salvar", style: .default) { _ in
             guard let textField = alert.textFields?.first,
               let nameOfSong = textField.text else {
                 return
@@ -65,7 +65,7 @@ class AlbumDetailsViewController: UIViewController {
             self.viewModel.addSong(title: nameOfSong)
             self.viewModel.getAll()
           }
-          let cancelAction = UIAlertAction(title: "Cancel",
+          let cancelAction = UIAlertAction(title: "Cancelar",
                                            style: .cancel)
           alert.addTextField()
           alert.addAction(saveAction)
@@ -104,11 +104,17 @@ extension AlbumDetailsViewController: UITableViewDelegate, UITableViewDataSource
         navigationController?.pushViewController(SongReviewController(song), animated: true)
     }
 
-//    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-//        let rotation = CATransform3DTranslate(CATransform3DIdentity, +500, 0, 0)
-//        cell.layer.transform = rotation
-//        UIView.animate(withDuration: 0.5) {
-//            cell.layer.transform = CATransform3DIdentity
-//        }
-//    }
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let contextualAction = UIContextualAction(style: .destructive, title: "Deletar") {(action, view, completionHandler) in
+            self.handleDelete(at: indexPath.row)
+                    completionHandler(true)
+        }
+        return UISwipeActionsConfiguration(actions: [contextualAction])
+    }
+}
+
+extension AlbumDetailsViewController {
+    func handleDelete(at index: Int) {
+        viewModel.delete(at: index)
+    }
 }
