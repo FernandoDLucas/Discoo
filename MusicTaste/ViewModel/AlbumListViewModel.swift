@@ -22,6 +22,7 @@ extension AlbumListViewModel {
         let array = repository.getAll()
         let arrayList = array.compactMap(AlbumViewModel.init)
         self.albuns = arrayList
+        self.handleUpdate?()
     }
 
     public var numberOfAlbuns: Int {

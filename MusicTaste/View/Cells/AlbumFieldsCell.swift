@@ -56,11 +56,15 @@ class AlbumFieldsCell: UITableViewCell, UITextFieldDelegate {
         self.addSubview(textField)
     }
 
-    public func configure(fieldName: String) {
+    public func configureFieldName(fieldName: String) {
         self.textField.delegate = self
         self.label.text = fieldName
         self.textField.placeholder = fieldName
         self.identifier = AlbumFields(rawValue: fieldName)
+    }
+
+    public func configureFieldValue(with text: String) {
+        self.textField.text = text
     }
 
     private func configureLayout() {

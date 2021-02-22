@@ -93,9 +93,6 @@ class AlbumCards: UICollectionViewCell {
             stackView.addArrangedSubview($0)
         }
         self.addSubview(stackView)
-        arrayOfLabels.forEach {
-            $0.translatesAutoresizingMaskIntoConstraints = false
-        }
         stackView.axis = .vertical
         stackView.distribution = .equalSpacing
     }
@@ -107,8 +104,9 @@ class AlbumCards: UICollectionViewCell {
             artworkImage.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.65),
             artworkImage.centerXAnchor.constraint(equalTo: self.centerXAnchor),
 
-            stackView.topAnchor.constraint(equalTo: artworkImage.bottomAnchor),
-            stackView.widthAnchor.constraint(equalTo: self.widthAnchor),
+            stackView.topAnchor.constraint(equalTo: artworkImage.bottomAnchor, constant: 5),
+            stackView.leftAnchor.constraint(equalTo: self.leftAnchor),
+            stackView.rightAnchor.constraint(equalTo: self.rightAnchor),
             stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
         ])
     }

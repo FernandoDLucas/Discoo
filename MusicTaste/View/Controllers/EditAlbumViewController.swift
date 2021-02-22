@@ -1,19 +1,26 @@
 //
-//  CreateAlbumViewController.swift
+//  EditAlbumViewController.swift
 //  MusicTaste
 //
-//  Created by Fernando de Lucas da Silva Gomes on 03/02/21.
+//  Created by Fernando de Lucas da Silva Gomes on 22/02/21.
 //
 
 import UIKit
 
-class CreateAlbumViewController: UIViewController {
+class EditAlbumViewController: UIViewController {
 
     let imagePicker = UIImagePickerController()
 
-    let viewModel = CreateAlbumViewModel()
+    let viewModel: EditAlbumViewModel
 
-    public var callBack : (() -> Void)?
+    init(with album: Album) {
+        self.viewModel = EditAlbumViewModel(with: album)
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     let pickerView: UIImageView = {
         let imageView = UIImageView()
@@ -38,12 +45,12 @@ class CreateAlbumViewController: UIViewController {
         self.imagePicker.delegate = self
         self.tableView.register(AlbumFieldsCell.self, forCellReuseIdentifier: AlbumFieldsCell.reuseIdentifier)
         self.viewModel.handleDismiss = {
-            self.dismiss(animated: true, completion: nil)
-            self.callBack?()
+            self.navigationController?.popViewController(animated: true)
         }
         configurateNavigationBar()
         setupPicker()
         setupTableView()
+        configureData()
     }
 
     private func setupTableView() {
@@ -57,31 +64,20 @@ class CreateAlbumViewController: UIViewController {
     }
 
     func configurateNavigationBar() {
-       self.title = "Novo Album"
-       self.isModalInPresentation = true
-
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancelar", style: .done, target: self.viewModel,
-                                                                action: #selector(viewModel.cancelButton))
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Salvar", style: .done, target: self,
                                                                 action: #selector(attemptToSave))
    }
 
     @objc func attemptToSave() {
-        if viewModel.albumDTO.artwork == nil {
-              let alert = UIAlertController(title: "Adicione a imagem",
-                                            message: "Adicione ao menos a capa do álbum para que ele seja salvo",
-                                            preferredStyle: .alert)
-              let okAction = UIAlertAction(title: "Ok",
-                                           style: .default)
-              alert.addAction(okAction)
-            self.present(alert, animated: true)
-        } else {
             viewModel.saveButton()
-        }
+    }
+
+    func configureData() {
+        pickerView.image = UIImage(data: viewModel.album.artwork!)
     }
 }
 
-extension CreateAlbumViewController: UITableViewDelegate, UITableViewDataSource {
+extension EditAlbumViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.numberOfRows
     }
@@ -92,11 +88,12 @@ extension CreateAlbumViewController: UITableViewDelegate, UITableViewDataSource 
         }
         cell.delegate = viewModel
         cell.configureFieldName(fieldName: viewModel.fieldName(row: indexPath.row)!)
+        cell.configureFieldValue(with: viewModel.fieldValue(row: indexPath.row))
         return cell
     }
 }
 
-extension CreateAlbumViewController {
+extension EditAlbumViewController {
 
     func setupPicker() {
         view.addSubview(pickerView)
@@ -116,7 +113,7 @@ extension CreateAlbumViewController {
     }
 }
 
-extension CreateAlbumViewController: UIImagePickerControllerDelegate & UINavigationControllerDelegate {
+extension EditAlbumViewController: UIImagePickerControllerDelegate & UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
                 let fixedImage = image.fixedOrientation

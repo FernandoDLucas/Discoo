@@ -84,14 +84,14 @@ extension HomeViewController {
         }
     }
 
-    func displayAllert(album: Album){
+    func displayAllert(album: Album) {
         let alert = UIAlertController(title: "Deletar \(album.name!)?",
                                       message: "",
                                       preferredStyle: .alert)
         let okAction = UIAlertAction(title: "Deletar",
                                      style: .default) { _ in
             self.viewModel.deleteAlbum(album: album)
-            self.editingState = false 
+        self.editingState = false
         }
         let deleteAction = UIAlertAction(title: "Cancelar",
                                      style: .cancel)
@@ -102,8 +102,8 @@ extension HomeViewController {
 }
 
 extension HomeViewController: DeleteCardDelegate {
-    func didSelectDelete(at: Int) {
-        guard let album = viewModel.albumForRow(at: at )?.album else {return}
+    func didSelectDelete(at index: Int) {
+        guard let album = viewModel.albumForRow(at: index )?.album else {return}
         self.displayAllert(album: album)
     }
 }

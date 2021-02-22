@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EC2BD88025DD588C00217540 /* ExtensionAlbumDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2BD87F25DD588C00217540 /* ExtensionAlbumDetailsViewController.swift */; };
 		EC57920D25CAC97A00A5440F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC57920C25CAC97A00A5440F /* AppDelegate.swift */; };
 		EC57920F25CAC97A00A5440F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC57920E25CAC97A00A5440F /* SceneDelegate.swift */; };
 		EC57921725CAC97A00A5440F /* MusicTaste.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EC57921525CAC97A00A5440F /* MusicTaste.xcdatamodeld */; };
@@ -35,6 +36,8 @@
 		EC67D3C825D6B9AC0085B02B /* ExtensionHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC67D3C725D6B9AC0085B02B /* ExtensionHomeViewController.swift */; };
 		EC79147B25CD7E8300BC3429 /* SongRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC79147A25CD7E8300BC3429 /* SongRepository.swift */; };
 		EC9291AC25CC0E1100BDCBE6 /* AlbumDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9291AB25CC0E1100BDCBE6 /* AlbumDTO.swift */; };
+		ECC1DC3325E40ECD00701FB2 /* EditAlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC1DC3225E40ECD00701FB2 /* EditAlbumViewController.swift */; };
+		ECC1DC3825E40F1400701FB2 /* EditAlbumViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC1DC3725E40F1400701FB2 /* EditAlbumViewModel.swift */; };
 		ECD06E1B25D1A1BF005D862A /* AlbumRepositoryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD06E1A25D1A1BF005D862A /* AlbumRepositoryTest.swift */; };
 		ECD06E2825D2B903005D862A /* AlbumViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD06E2725D2B903005D862A /* AlbumViewModelTest.swift */; };
 		ECD06E4225D2C20A005D862A /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = ECD06E4125D2C20A005D862A /* .swiftlint.yml */; };
@@ -58,6 +61,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EC2BD87F25DD588C00217540 /* ExtensionAlbumDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionAlbumDetailsViewController.swift; sourceTree = "<group>"; };
 		EC57920925CAC97A00A5440F /* MusicTaste.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicTaste.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC57920C25CAC97A00A5440F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EC57920E25CAC97A00A5440F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -92,6 +96,8 @@
 		EC67D3C725D6B9AC0085B02B /* ExtensionHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionHomeViewController.swift; sourceTree = "<group>"; };
 		EC79147A25CD7E8300BC3429 /* SongRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongRepository.swift; sourceTree = "<group>"; };
 		EC9291AB25CC0E1100BDCBE6 /* AlbumDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDTO.swift; sourceTree = "<group>"; };
+		ECC1DC3225E40ECD00701FB2 /* EditAlbumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAlbumViewController.swift; sourceTree = "<group>"; };
+		ECC1DC3725E40F1400701FB2 /* EditAlbumViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAlbumViewModel.swift; sourceTree = "<group>"; };
 		ECD06E1A25D1A1BF005D862A /* AlbumRepositoryTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumRepositoryTest.swift; sourceTree = "<group>"; };
 		ECD06E2725D2B903005D862A /* AlbumViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumViewModelTest.swift; sourceTree = "<group>"; };
 		ECD06E4125D2C20A005D862A /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
@@ -122,6 +128,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EC2BD87E25DD584D00217540 /* AlbumDetailsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				EC57928525CADABF00A5440F /* AlbumDetailsViewController.swift */,
+				EC2BD87F25DD588C00217540 /* ExtensionAlbumDetailsViewController.swift */,
+			);
+			path = AlbumDetailsViewController;
+			sourceTree = "<group>";
+		};
 		EC57920025CAC97A00A5440F = {
 			isa = PBXGroup;
 			children = (
@@ -209,6 +224,7 @@
 				EC57927525CAD74F00A5440F /* AlbumListViewModel.swift */,
 				EC57927A25CAD77300A5440F /* CreateAlbumViewModel.swift */,
 				EC57927F25CAD79000A5440F /* SongViewModel.swift */,
+				ECC1DC3725E40F1400701FB2 /* EditAlbumViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -234,10 +250,11 @@
 		EC57928425CADA9700A5440F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				EC2BD87E25DD584D00217540 /* AlbumDetailsViewController */,
 				EC67D3C625D6B97C0085B02B /* HomeViewController */,
-				EC57928525CADABF00A5440F /* AlbumDetailsViewController.swift */,
 				EC57929225CADAE000A5440F /* CreateAlbumViewController.swift */,
 				EC57929925CADB0500A5440F /* SongReviewController.swift */,
+				ECC1DC3225E40ECD00701FB2 /* EditAlbumViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -458,11 +475,13 @@
 				EC9291AC25CC0E1100BDCBE6 /* AlbumDTO.swift in Sources */,
 				EC57924825CACDDD00A5440F /* Song.swift in Sources */,
 				EC57926C25CAD6AA00A5440F /* AlbumRepository.swift in Sources */,
+				EC2BD88025DD588C00217540 /* ExtensionAlbumDetailsViewController.swift in Sources */,
 				EC57928E25CADACD00A5440F /* HomeViewController.swift in Sources */,
 				EC57926725CAD69900A5440F /* Repository.swift in Sources */,
 				EC67D3BF25D6A6250085B02B /* ShakingAnimation.swift in Sources */,
 				EC5792AB25CADEF900A5440F /* AlbumCards.swift in Sources */,
 				EC57928625CADABF00A5440F /* AlbumDetailsViewController.swift in Sources */,
+				ECC1DC3325E40ECD00701FB2 /* EditAlbumViewController.swift in Sources */,
 				EC67D3C825D6B9AC0085B02B /* ExtensionHomeViewController.swift in Sources */,
 				EC57921725CAC97A00A5440F /* MusicTaste.xcdatamodeld in Sources */,
 				EC57920D25CAC97A00A5440F /* AppDelegate.swift in Sources */,
@@ -470,6 +489,7 @@
 				EC57929A25CADB0500A5440F /* SongReviewController.swift in Sources */,
 				EC57924625CACDDD00A5440F /* Album.swift in Sources */,
 				EC57927125CAD73E00A5440F /* AlbumViewModel.swift in Sources */,
+				ECC1DC3825E40F1400701FB2 /* EditAlbumViewModel.swift in Sources */,
 				EC57928025CAD79000A5440F /* SongViewModel.swift in Sources */,
 				EC57927B25CAD77300A5440F /* CreateAlbumViewModel.swift in Sources */,
 				EC5792B925CB259600A5440F /* AlbumForms.swift in Sources */,

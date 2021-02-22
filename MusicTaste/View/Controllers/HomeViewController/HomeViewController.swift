@@ -67,5 +67,5 @@ class HomeViewController: UIViewController {
 }
 
 protocol DeleteCardDelegate: class {
-    func didSelectDelete(at: Int)
+    func didSelectDelete(at index: Int)
 }
