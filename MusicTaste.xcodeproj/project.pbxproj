@@ -31,6 +31,8 @@
 		EC5792AB25CADEF900A5440F /* AlbumCards.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5792AA25CADEF900A5440F /* AlbumCards.swift */; };
 		EC5792B325CB204000A5440F /* AlbumFieldsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5792B225CB204000A5440F /* AlbumFieldsCell.swift */; };
 		EC5792B925CB259600A5440F /* AlbumForms.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5792B825CB259600A5440F /* AlbumForms.swift */; };
+		EC5C418D25ED7C9900F445FA /* OnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5C418C25ED7C9900F445FA /* OnBoardingViewController.swift */; };
+		EC5C419525ED7CF100F445FA /* OnBoardingCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5C419425ED7CF100F445FA /* OnBoardingCells.swift */; };
 		EC67D3B625D6A0230085B02B /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC67D3B525D6A0230085B02B /* UIImage.swift */; };
 		EC67D3BF25D6A6250085B02B /* ShakingAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC67D3BE25D6A6250085B02B /* ShakingAnimation.swift */; };
 		EC67D3C825D6B9AC0085B02B /* ExtensionHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC67D3C725D6B9AC0085B02B /* ExtensionHomeViewController.swift */; };
@@ -91,6 +93,8 @@
 		EC5792AA25CADEF900A5440F /* AlbumCards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumCards.swift; sourceTree = "<group>"; };
 		EC5792B225CB204000A5440F /* AlbumFieldsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumFieldsCell.swift; sourceTree = "<group>"; };
 		EC5792B825CB259600A5440F /* AlbumForms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumForms.swift; sourceTree = "<group>"; };
+		EC5C418C25ED7C9900F445FA /* OnBoardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController.swift; sourceTree = "<group>"; };
+		EC5C419425ED7CF100F445FA /* OnBoardingCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingCells.swift; sourceTree = "<group>"; };
 		EC67D3B525D6A0230085B02B /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		EC67D3BE25D6A6250085B02B /* ShakingAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShakingAnimation.swift; sourceTree = "<group>"; };
 		EC67D3C725D6B9AC0085B02B /* ExtensionHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionHomeViewController.swift; sourceTree = "<group>"; };
@@ -255,6 +259,7 @@
 				EC57929225CADAE000A5440F /* CreateAlbumViewController.swift */,
 				EC57929925CADB0500A5440F /* SongReviewController.swift */,
 				ECC1DC3225E40ECD00701FB2 /* EditAlbumViewController.swift */,
+				EC5C418C25ED7C9900F445FA /* OnBoardingViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -264,6 +269,7 @@
 			children = (
 				EC5792AA25CADEF900A5440F /* AlbumCards.swift */,
 				EC5792B225CB204000A5440F /* AlbumFieldsCell.swift */,
+				EC5C419425ED7CF100F445FA /* OnBoardingCells.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -475,6 +481,7 @@
 				EC9291AC25CC0E1100BDCBE6 /* AlbumDTO.swift in Sources */,
 				EC57924825CACDDD00A5440F /* Song.swift in Sources */,
 				EC57926C25CAD6AA00A5440F /* AlbumRepository.swift in Sources */,
+				EC5C418D25ED7C9900F445FA /* OnBoardingViewController.swift in Sources */,
 				EC2BD88025DD588C00217540 /* ExtensionAlbumDetailsViewController.swift in Sources */,
 				EC57928E25CADACD00A5440F /* HomeViewController.swift in Sources */,
 				EC57926725CAD69900A5440F /* Repository.swift in Sources */,
@@ -484,6 +491,7 @@
 				ECC1DC3325E40ECD00701FB2 /* EditAlbumViewController.swift in Sources */,
 				EC67D3C825D6B9AC0085B02B /* ExtensionHomeViewController.swift in Sources */,
 				EC57921725CAC97A00A5440F /* MusicTaste.xcdatamodeld in Sources */,
+				EC5C419525ED7CF100F445FA /* OnBoardingCells.swift in Sources */,
 				EC57920D25CAC97A00A5440F /* AppDelegate.swift in Sources */,
 				EC79147B25CD7E8300BC3429 /* SongRepository.swift in Sources */,
 				EC57929A25CADB0500A5440F /* SongReviewController.swift in Sources */,
@@ -666,7 +674,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = YBM22U9FU3;
 				INFOPLIST_FILE = MusicTaste/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -687,7 +695,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = YBM22U9FU3;
 				INFOPLIST_FILE = MusicTaste/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

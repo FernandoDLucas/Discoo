@@ -12,7 +12,7 @@ class AlbumCards: UICollectionViewCell {
     static let reuseIdentifier = "AlbumCards"
     var cover: UIImage?
     weak var delegate: DeleteCardDelegate?
-    var row: Int = 0
+    var index: IndexPath?
 
     let artworkImage: UIImageView = {
         let imageView = UIImageView()
@@ -150,6 +150,6 @@ class AlbumCards: UICollectionViewCell {
 
 extension AlbumCards {
     @objc func didSelectedDelete() {
-        self.delegate?.didSelectDelete(at: row)
+        self.delegate?.didSelectDelete(at: index!)
     }
 }

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -18,15 +19,15 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AlbumCards.reuseIdentifier, for: indexPath) as? AlbumCards else {return AlbumCards()}
-        guard let album = viewModel.albumForRow(at: indexPath.row) else {return AlbumCards()}
+        let album = viewModel.albumForRow(at: indexPath)
         cell.configure(image: album.artwork!, artist: album.artist ?? "", year: album.year, name: album.name ?? "")
         cell.delegate = self
-        cell.row = indexPath.row
+        cell.index = indexPath
         return cell
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let album = viewModel.albumForRow(at: indexPath.row)?.album else {return}
+        let album = viewModel.albumForRow(at: indexPath)
         if !editingState {self.navigationController?.pushViewController(AlbumDetailsViewController(album), animated: true)}
     }
 
@@ -42,10 +43,6 @@ extension HomeViewController {
 
     @objc func add() {
         let controller = CreateAlbumViewController()
-        controller.callBack = {
-            self.viewModel.getAll()
-             self.viewModel.handleUpdate?()
-        }
         let navControll = UINavigationController(rootViewController: controller)
         self.navigationController?.present(navControll, animated: true)
     }
@@ -102,8 +99,14 @@ extension HomeViewController {
 }
 
 extension HomeViewController: DeleteCardDelegate {
-    func didSelectDelete(at index: Int) {
-        guard let album = viewModel.albumForRow(at: index )?.album else {return}
+    func didSelectDelete(at index: IndexPath) {
+        let album = viewModel.albumForRow(at: index)
         self.displayAllert(album: album)
+    }
+}
+
+extension HomeViewController: NSFetchedResultsControllerDelegate {
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        collectionView.reloadData()
     }
 }

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreData
 
 class AlbumListViewModel {
 
@@ -13,7 +14,11 @@ class AlbumListViewModel {
 
     let repository = AlbumRepository()
 
-    var handleUpdate: (() -> Void)?
+    weak open var delegate: NSFetchedResultsControllerDelegate? {
+        didSet {
+            repository.service.controllerDelegate = self.delegate
+        }
+    }
 
 }
 
@@ -22,14 +27,13 @@ extension AlbumListViewModel {
         let array = repository.getAll()
         let arrayList = array.compactMap(AlbumViewModel.init)
         self.albuns = arrayList
-        self.handleUpdate?()
     }
 
     public var numberOfAlbuns: Int {
-        return self.albuns.count
+        return repository.numberOfItens
     }
 
-    public func albumForRow (at index: Int) -> AlbumViewModel? {
+    public func albumViewModelForRow (at index: Int) -> AlbumViewModel? {
         if numberOfAlbuns > index {
             let album = albuns[index]
             return album
@@ -37,9 +41,13 @@ extension AlbumListViewModel {
         return nil
     }
 
+    public func albumForRow(at index: IndexPath) -> Album {
+        let album = repository.objectAt(at: index)
+        return album
+    }
+
     public func deleteAlbum (album: Album) {
         _ = repository.delete(object: album)
-        handleUpdate?()
     }
 
 }

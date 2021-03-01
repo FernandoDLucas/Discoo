@@ -10,7 +10,7 @@ import Foundation
 class EditAlbumViewModel {
 
     let form = AlbumForm.create
-    var albumDTO : AlbumDTO
+    var albumDTO: AlbumDTO
     let repository = AlbumRepository()
     let album: Album
 
@@ -50,7 +50,7 @@ extension EditAlbumViewModel {
     }
 
     @objc func saveButton() {
-        if let image = self.albumDTO.artwork{
+        if let image = self.albumDTO.artwork {
             self.album.artwork = image
         }
         self.album.artist = self.albumDTO.artist

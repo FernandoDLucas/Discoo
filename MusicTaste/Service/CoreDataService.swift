@@ -16,6 +16,8 @@ extension NSManagedObject {
 
 class CoreDataService<T: NSManagedObject> {
 
+    weak var controllerDelegate: NSFetchedResultsControllerDelegate?
+
     let persistentStore: NSPersistentContainer = {
         let appDelegate = UIApplication.shared.delegate as? AppDelegate
         let container = appDelegate?.persistentContainer
@@ -36,8 +38,8 @@ class CoreDataService<T: NSManagedObject> {
         do {
             let objects = try context.fetch(fetch)
             return objects
-        } catch let error as NSError {
-            print(error)
+        } catch {
+            context.handleSavingError(error, info: "Saving with error")
             return nil
         }
     }
@@ -78,6 +80,21 @@ class CoreDataService<T: NSManagedObject> {
             return nil
         }
     }
+
+    lazy var fetchedResultsController: NSFetchedResultsController<T> = {
+        let fetchRequest = NSFetchRequest<T>(entityName: T.entityName)
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "objectID", ascending: false)]
+        let controller = NSFetchedResultsController(fetchRequest: fetchRequest,
+                                                    managedObjectContext: persistentStore.viewContext,
+                                                    sectionNameKeyPath: nil, cacheName: nil)
+        controller.delegate = controllerDelegate
+        do {
+            try controller.performFetch()
+        } catch {
+            fatalError("###\(#function): Failed to performFetch: \(error)")
+        }
+        return controller
+    }()
 }
 
 extension NSManagedObjectContext {
@@ -87,12 +104,10 @@ extension NSManagedObjectContext {
             guard let window = UIApplication.shared.delegate?.window,
                   let viewController = window?.rootViewController else { return }
             let message = "Failed to save the contex \(info)"
-            // Append message to existing alert if present
             if let currentAlert = viewController.presentedViewController as? UIAlertController {
                 currentAlert.message = (currentAlert.message ?? "") + "\n\n\(message)"
                 return
             }
-            // Otherwise present a new alert
             let alert = UIAlertController(title: "Core Data Saving Error", message: message, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default))
             viewController.present(alert, animated: true)

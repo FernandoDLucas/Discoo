@@ -36,7 +36,7 @@ class HomeViewController: UIViewController {
     let invisibleView: UIView = {
        let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-    return view
+        return view
     }()
 
     var editingState: Bool = false
@@ -47,25 +47,19 @@ class HomeViewController: UIViewController {
         self.view.backgroundColor = .systemBackground
         collectionView.delegate = self
         collectionView.dataSource = self
-        viewModel.handleUpdate = {
-            DispatchQueue.main.async {
-                self.viewModel.getAll()
-                self.collectionView.reloadData()
-            }
-        }
+        viewModel.delegate = self
         configureNavigation()
         setupInvisibleView()
         setupCollectionView()
+        self.view.addGestureRecognizer(longPressedGesture)
     }
 
     override func viewWillAppear(_ animated: Bool) {
         navigationItem.largeTitleDisplayMode = .always
-        viewModel.getAll()
         collectionView.backgroundView = UIView(frame: self.view.frame)
-        self.view.addGestureRecognizer(longPressedGesture)
     }
 }
 
 protocol DeleteCardDelegate: class {
-    func didSelectDelete(at index: Int)
+    func didSelectDelete(at index: IndexPath)
 }

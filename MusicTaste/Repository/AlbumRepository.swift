@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreData
 
 class AlbumRepository {
 
@@ -15,6 +16,14 @@ class AlbumRepository {
     func addSong(title: String, album: Album) -> Album? {
         return nil
     }
+
+    func objectAt(at index: IndexPath) -> Album {
+        return service.fetchedResultsController.object(at: index)
+    }
+
+     var numberOfItens: Int {
+    return service.fetchedResultsController.fetchedObjects?.count ?? 0
+    }
 }
 
 extension AlbumRepository: Repository {
@@ -22,7 +31,7 @@ extension AlbumRepository: Repository {
     typealias ObjectDTO = AlbumDTO
 
     func getAll() -> [Album] {
-        guard let albuns = service.fetchAll() else { return self.albuns }
+        guard let albuns = service.fetchedResultsController.fetchedObjects else { return self.albuns }
         self.albuns = albuns
         return albuns
     }

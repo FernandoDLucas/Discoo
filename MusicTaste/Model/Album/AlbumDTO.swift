@@ -25,7 +25,7 @@ struct AlbumDTO {
         self.artwork = album.artwork
         self.year = album.year
     }
-    init(name: String, artist: String, year: Int32){
+    init(name: String, artist: String, year: Int32) {
         self.name = name
         self.artist = artist
         self.year = year
