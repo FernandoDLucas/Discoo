@@ -40,6 +40,7 @@
 		EC9291AC25CC0E1100BDCBE6 /* AlbumDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9291AB25CC0E1100BDCBE6 /* AlbumDTO.swift */; };
 		ECC1DC3325E40ECD00701FB2 /* EditAlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC1DC3225E40ECD00701FB2 /* EditAlbumViewController.swift */; };
 		ECC1DC3825E40F1400701FB2 /* EditAlbumViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC1DC3725E40F1400701FB2 /* EditAlbumViewModel.swift */; };
+		ECC3AA0D26091BB9008488EF /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC3AA0C26091BB9008488EF /* UIColor.swift */; };
 		ECD06E1B25D1A1BF005D862A /* AlbumRepositoryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD06E1A25D1A1BF005D862A /* AlbumRepositoryTest.swift */; };
 		ECD06E2825D2B903005D862A /* AlbumViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD06E2725D2B903005D862A /* AlbumViewModelTest.swift */; };
 		ECD06E4225D2C20A005D862A /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = ECD06E4125D2C20A005D862A /* .swiftlint.yml */; };
@@ -102,6 +103,7 @@
 		EC9291AB25CC0E1100BDCBE6 /* AlbumDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDTO.swift; sourceTree = "<group>"; };
 		ECC1DC3225E40ECD00701FB2 /* EditAlbumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAlbumViewController.swift; sourceTree = "<group>"; };
 		ECC1DC3725E40F1400701FB2 /* EditAlbumViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAlbumViewModel.swift; sourceTree = "<group>"; };
+		ECC3AA0C26091BB9008488EF /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		ECD06E1A25D1A1BF005D862A /* AlbumRepositoryTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumRepositoryTest.swift; sourceTree = "<group>"; };
 		ECD06E2725D2B903005D862A /* AlbumViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumViewModelTest.swift; sourceTree = "<group>"; };
 		ECD06E4125D2C20A005D862A /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
@@ -286,6 +288,7 @@
 			isa = PBXGroup;
 			children = (
 				EC67D3B525D6A0230085B02B /* UIImage.swift */,
+				ECC3AA0C26091BB9008488EF /* UIColor.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -494,6 +497,7 @@
 				EC5C419525ED7CF100F445FA /* OnBoardingCells.swift in Sources */,
 				EC57920D25CAC97A00A5440F /* AppDelegate.swift in Sources */,
 				EC79147B25CD7E8300BC3429 /* SongRepository.swift in Sources */,
+				ECC3AA0D26091BB9008488EF /* UIColor.swift in Sources */,
 				EC57929A25CADB0500A5440F /* SongReviewController.swift in Sources */,
 				EC57924625CACDDD00A5440F /* Album.swift in Sources */,
 				EC57927125CAD73E00A5440F /* AlbumViewModel.swift in Sources */,

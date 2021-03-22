@@ -57,6 +57,7 @@ class HomeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         navigationItem.largeTitleDisplayMode = .always
         collectionView.backgroundView = UIView(frame: self.view.frame)
+        presentOnBoard()
     }
 }
 

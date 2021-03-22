@@ -96,6 +96,13 @@ extension HomeViewController {
         alert.addAction(deleteAction)
         self.present(alert, animated: true)
     }
+
+    func presentOnBoard() {
+        let hasSeenOnBoard = UserDefaults.standard.bool(forKey: "hasSeenOnboard")
+        if hasSeenOnBoard {return} else {
+            self.present(OnBoardingViewController(), animated: true, completion: nil)
+        }
+    }
 }
 
 extension HomeViewController: DeleteCardDelegate {
